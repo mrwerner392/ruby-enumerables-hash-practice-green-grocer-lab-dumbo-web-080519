@@ -22,7 +22,7 @@ def consolidate_cart(cart)
       memo2[key] = value
       memo2
     end
-    
+
     if memo[current_key]
       memo[current_key][:count] += 1
     else
