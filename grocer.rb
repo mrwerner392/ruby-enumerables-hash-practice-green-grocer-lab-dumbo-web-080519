@@ -12,7 +12,7 @@ def consolidate_cart(cart)
   end
 end
 
-
+=begin
 def apply_coupons(cart, coupons)
   coupons.each do |elem|
     if cart[elem[:item]]
@@ -33,15 +33,14 @@ def apply_coupons(cart, coupons)
   end
   cart
 end
+=end
 
 
-
-=begin
 def apply_coupons(cart, coupons)
   coupons.each do |elem|
     if cart[elem[:item]]
       if cart["#{elem[:item]} W/COUPON"]
-        cart["#{ele[:item]} W/COUPON"][:count] += elem[:num]
+        cart["#{elem[:item]} W/COUPON"][:count] += elem[:num]
       else
         coupon_price = elem[:cost] / elem[:num]
         coupon_clearance = cart[elem[:item]][:clearance]
@@ -56,7 +55,7 @@ def apply_coupons(cart, coupons)
   end
   cart
 end
-=end
+
 
 def apply_clearance(cart)
   cart.reduce({}) do |memo, (key, value)|
