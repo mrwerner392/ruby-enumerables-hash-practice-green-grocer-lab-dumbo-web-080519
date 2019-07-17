@@ -1,6 +1,6 @@
 def consolidate_cart(cart)
-  cart_hash = cart.reduce({}) do |memo, elem|
-    elem.reduce({}) do |memo2, (key, value)|
+  cart_hash = cart.reduce({}) do |memo, item|
+    item.reduce({}) do |memo2, (key, value)|
       if memo[key]
         memo[key][:count] += 1
       else
