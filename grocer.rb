@@ -49,7 +49,12 @@ end
 def checkout(cart, coupons)
   #consolidated_cart = consolidate_cart(cart)
   #consolidated_cart_w_coupons = apply_coupons(consolidated_cart, coupons)
-  consolidated_cart_w_coupons_and_discounts = apply_clearance( apply_coupons( consolidate_cart(cart), coupons ) )
-
-
+  final_cart = apply_clearance( apply_coupons( consolidate_cart(cart), coupons ) )
+  total = final_cart.reduce(0) do memo, (key, value)|
+    memo += (value[:price] * value[:count])
+    memo
+  end
+  if total > 100
+    total *= 0.9
+  end
 end
