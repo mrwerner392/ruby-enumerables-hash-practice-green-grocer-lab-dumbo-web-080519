@@ -12,28 +12,7 @@ def consolidate_cart(cart)
   end
 end
 
-=begin
-def consolidate_cart(cart)
-  cart_hash = cart.reduce({}) do |memo, elem|
-    current_key = ""
-    elem.reduce({}) do |memo2, (key, value)|
-      current_key = key
-      value[:count] = 1
-      memo2[key] = value
-      memo2
-    end
 
-    if memo[current_key]
-      memo[current_key][:count] += 1
-    else
-      memo.update(elem)
-    end
-    memo
-  end
-end
-=end
-
-=begin
 def apply_coupons(cart, coupons)
   coupons.each do |elem|
     if cart[elem[:item]]
@@ -55,8 +34,9 @@ def apply_coupons(cart, coupons)
   cart
 end
 
-=end
 
+
+=begin
 def apply_coupons(cart, coupons)
   coupons.each do |elem|
     if cart[elem[:item]]
@@ -76,7 +56,7 @@ def apply_coupons(cart, coupons)
   end
   cart
 end
-
+=end
 
 def apply_clearance(cart)
   cart.reduce({}) do |memo, (key, value)|
