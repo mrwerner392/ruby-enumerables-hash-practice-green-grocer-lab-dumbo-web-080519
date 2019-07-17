@@ -48,7 +48,7 @@ end
 # calculate total cost of cart
 def checkout(cart, coupons)
   consolidated_cart = consolidate_cart(cart)
-  consolidated_cart_w_coupons = apply_coupons(consolidated_cart)
+  consolidated_cart_w_coupons = apply_coupons(consolidated_cart, coupons)
   consolidated_cart_w_coupons_and_discounts = apply_clearance(consolidated_cart_w_coupons)
 
   
