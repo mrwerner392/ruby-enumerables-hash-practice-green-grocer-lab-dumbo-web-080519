@@ -11,7 +11,7 @@ def consolidate_cart(cart)
     if memo[current_key]
       memo[current_key][:count] += 1
     else
-      memo.update(elem)
+      memo << elem
     end
     memo
   end
