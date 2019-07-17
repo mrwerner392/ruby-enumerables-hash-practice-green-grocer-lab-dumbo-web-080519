@@ -1,3 +1,4 @@
+# count and consolidate items in a shopping cart
 def consolidate_cart(cart)
   cart_hash = cart.reduce({}) do |memo, item|
     item.reduce({}) do |memo2, (key, value)|
@@ -12,6 +13,7 @@ def consolidate_cart(cart)
   end
 end
 
+# update cart to account for coupons
 def apply_coupons(cart, coupons)
   coupons.each do |elem|
     if cart[elem[:item]]
@@ -32,7 +34,7 @@ def apply_coupons(cart, coupons)
   cart
 end
 
-
+# apply clearance discount where appropriate
 def apply_clearance(cart)
   cart.reduce({}) do |memo, (key, value)|
     if value[:clearance]
@@ -43,6 +45,11 @@ def apply_clearance(cart)
   end
 end
 
+# calculate total cost of cart
 def checkout(cart, coupons)
-  # code here
+  consolidated_cart = consolidate_cart(cart)
+  consolidated_cart_w_coupons = apply_coupons(consolidated_cart)
+  consolidated_cart_w_coupons_and_discounts = apply_clearance(consolidated_cart_w_coupons)
+
+  
 end
