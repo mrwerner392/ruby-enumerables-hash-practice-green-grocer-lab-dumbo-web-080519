@@ -40,6 +40,8 @@ def apply_clearance(cart)
     if value[:clearance]
       value[:price] = (value[:price] * 0.8).round(2)
       memo[key] = value
+    else
+      memo[key] = value
     end
     memo
   end
